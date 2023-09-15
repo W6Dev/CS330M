@@ -1,2 +1,3 @@
 [submodule "CS330M\\external\\cmakelibs\\glfw"]
+    path = CS330M/external/cmakelibs/glfw
 	url = https://github.com/glfw/glfw.git
