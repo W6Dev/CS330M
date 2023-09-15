@@ -440,3 +440,55 @@ Parsed CXX implicit link information from above output:
   implicit fwks: []
 
 
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: C:/Users/matt/source/repos/CS330M/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.2.1/bin/ninja/win/ninja.exe cmTC_9b95b && [1/2] Building C object CMakeFiles/cmTC_9b95b.dir/CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_9b95b.exe
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: C:/Users/matt/source/repos/CS330M/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.2.1/bin/ninja/win/ninja.exe cmTC_dbecb && [1/2] Building C object CMakeFiles/cmTC_dbecb.dir/src.c.obj
+[2/2] Linking C executable cmTC_dbecb.exe
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the include file dinput.h exists passed with the following output:
+Change Dir: C:/Users/matt/source/repos/CS330M/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.2.1/bin/ninja/win/ninja.exe cmTC_749be && [1/2] Building C object CMakeFiles/cmTC_749be.dir/CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_749be.exe
+
+
+
+Determining if the include file xinput.h exists passed with the following output:
+Change Dir: C:/Users/matt/source/repos/CS330M/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.2.1/bin/ninja/win/ninja.exe cmTC_951bc && [1/2] Building C object CMakeFiles/cmTC_951bc.dir/CheckIncludeFile.c.obj
+[2/2] Linking C executable cmTC_951bc.exe
+
+
+

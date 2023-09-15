@@ -63,6 +63,48 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # C:/Users/matt/source/repos/CS330M/CMakeLists.txt
@@ -75,26 +117,26 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for CS330M
 
-build cmake_object_order_depends_target_CS330M: phony || CS330M/CMakeFiles/CS330M.dir
+build cmake_object_order_depends_target_CS330M: phony || cmake_object_order_depends_target_glfw
 
 build CS330M/CMakeFiles/CS330M.dir/src/application.cpp.obj: CXX_COMPILER__CS330M_Debug C$:/Users/matt/source/repos/CS330M/CS330M/src/application.cpp || cmake_object_order_depends_target_CS330M
   DEP_FILE = CS330M\CMakeFiles\CS330M.dir\src\application.cpp.obj.d
   FLAGS = -g
-  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/shared/glad/include
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/shared/glad/include -IC:/Users/matt/source/repos/CS330M/CS330M/glfw -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include
   OBJECT_DIR = CS330M\CMakeFiles\CS330M.dir
   OBJECT_FILE_DIR = CS330M\CMakeFiles\CS330M.dir\src
 
 build CS330M/CMakeFiles/CS330M.dir/src/main.cpp.obj: CXX_COMPILER__CS330M_Debug C$:/Users/matt/source/repos/CS330M/CS330M/src/main.cpp || cmake_object_order_depends_target_CS330M
   DEP_FILE = CS330M\CMakeFiles\CS330M.dir\src\main.cpp.obj.d
   FLAGS = -g
-  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/shared/glad/include
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/shared/glad/include -IC:/Users/matt/source/repos/CS330M/CS330M/glfw -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include
   OBJECT_DIR = CS330M\CMakeFiles\CS330M.dir
   OBJECT_FILE_DIR = CS330M\CMakeFiles\CS330M.dir\src
 
 build CS330M/CMakeFiles/CS330M.dir/external/shared/glad/src/glad.c.obj: C_COMPILER__CS330M_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/shared/glad/src/glad.c || cmake_object_order_depends_target_CS330M
   DEP_FILE = CS330M\CMakeFiles\CS330M.dir\external\shared\glad\src\glad.c.obj.d
   FLAGS = -g
-  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/shared/glad/include
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/shared/glad/include -IC:/Users/matt/source/repos/CS330M/CS330M/glfw -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include
   OBJECT_DIR = CS330M\CMakeFiles\CS330M.dir
   OBJECT_FILE_DIR = CS330M\CMakeFiles\CS330M.dir\external\shared\glad\src
 
@@ -106,9 +148,9 @@ build CS330M/CMakeFiles/CS330M.dir/external/shared/glad/src/glad.c.obj: C_COMPIL
 #############################################
 # Link the executable CS330M\CS330M.exe
 
-build CS330M/CS330M.exe: CXX_EXECUTABLE_LINKER__CS330M_Debug CS330M/CMakeFiles/CS330M.dir/src/application.cpp.obj CS330M/CMakeFiles/CS330M.dir/src/main.cpp.obj CS330M/CMakeFiles/CS330M.dir/external/shared/glad/src/glad.c.obj
+build CS330M/CS330M.exe: CXX_EXECUTABLE_LINKER__CS330M_Debug CS330M/CMakeFiles/CS330M.dir/src/application.cpp.obj CS330M/CMakeFiles/CS330M.dir/src/main.cpp.obj CS330M/CMakeFiles/CS330M.dir/external/shared/glad/src/glad.c.obj | CS330M/external/cmakelibs/glfw/src/libglfw3.a || CS330M/external/cmakelibs/glfw/src/libglfw3.a
   FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = CS330M/external/cmakelibs/glfw/src/libglfw3.a  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CS330M\CMakeFiles\CS330M.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -139,12 +181,422 @@ build CS330M/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build CS330M/rebuild_cache: phony CS330M/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build CS330M/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CS330M/CMakeFiles/install.util: CUSTOM_COMMAND CS330M/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build CS330M/install: phony CS330M/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CS330M/CMakeFiles/install/local.util: CUSTOM_COMMAND CS330M/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build CS330M/install/local: phony CS330M/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CS330M/CMakeFiles/install/strip.util: CUSTOM_COMMAND CS330M/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build CS330M/install/strip: phony CS330M/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/matt/source/repos/CS330M/CS330M/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for uninstall
+
+build CS330M/external/cmakelibs/glfw/uninstall: phony CS330M/external/cmakelibs/glfw/CMakeFiles/uninstall
+
+
+#############################################
+# Utility command for edit_cache
+
+build CS330M/external/cmakelibs/glfw/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M\external\cmakelibs\glfw && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build CS330M/external/cmakelibs/glfw/edit_cache: phony CS330M/external/cmakelibs/glfw/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CS330M/external/cmakelibs/glfw/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M\external\cmakelibs\glfw && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\matt\source\repos\CS330M -BC:\Users\matt\source\repos\CS330M\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build CS330M/external/cmakelibs/glfw/rebuild_cache: phony CS330M/external/cmakelibs/glfw/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build CS330M/external/cmakelibs/glfw/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CS330M/external/cmakelibs/glfw/CMakeFiles/install.util: CUSTOM_COMMAND CS330M/external/cmakelibs/glfw/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M\external\cmakelibs\glfw && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build CS330M/external/cmakelibs/glfw/install: phony CS330M/external/cmakelibs/glfw/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CS330M/external/cmakelibs/glfw/CMakeFiles/install/local.util: CUSTOM_COMMAND CS330M/external/cmakelibs/glfw/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M\external\cmakelibs\glfw && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build CS330M/external/cmakelibs/glfw/install/local: phony CS330M/external/cmakelibs/glfw/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CS330M/external/cmakelibs/glfw/CMakeFiles/install/strip.util: CUSTOM_COMMAND CS330M/external/cmakelibs/glfw/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M\external\cmakelibs\glfw && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build CS330M/external/cmakelibs/glfw/install/strip: phony CS330M/external/cmakelibs/glfw/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for CS330M\external\cmakelibs\glfw\CMakeFiles\uninstall
+
+build CS330M/external/cmakelibs/glfw/CMakeFiles/uninstall | ${cmake_ninja_workdir}CS330M/external/cmakelibs/glfw/CMakeFiles/uninstall: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M\external\cmakelibs\glfw && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -P C:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/cmake_uninstall.cmake"
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Order-only phony target for glfw
+
+build cmake_object_order_depends_target_glfw: phony || CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/context.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\context.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/init.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\init.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/input.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/input.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\input.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\monitor.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/platform.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/platform.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\platform.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/vulkan.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\vulkan.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/window.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\window.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/egl_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\egl_context.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/osmesa_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\osmesa_context.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/null_init.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/null_init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\null_init.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/null_monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\null_monitor.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/null_window.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/null_window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\null_window.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/null_joystick.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\null_joystick.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/win32_module.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\win32_module.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/win32_time.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\win32_time.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/win32_thread.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\win32_thread.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/win32_init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\win32_init.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/win32_joystick.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\win32_joystick.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/win32_monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\win32_monitor.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/win32_window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\win32_window.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj: C_COMPILER__glfw_Debug C$:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src/wgl_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE
+  DEP_FILE = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir\wgl_context.c.obj.d
+  FLAGS = -g -Wall -std=c99 -Wdeclaration-after-statement
+  INCLUDES = -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/include -IC:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/src -IC:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  OBJECT_FILE_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Link the static library CS330M\external\cmakelibs\glfw\src\libglfw3.a
+
+build CS330M/external/cmakelibs/glfw/src/libglfw3.a: C_STATIC_LIBRARY_LINKER__glfw_Debug CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/context.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/init.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/input.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/platform.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/window.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/null_init.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/null_window.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj CS330M/external/cmakelibs/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = CS330M\external\cmakelibs\glfw\src\CMakeFiles\glfw.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = CS330M\external\cmakelibs\glfw\src\libglfw3.a
+  TARGET_PDB = glfw3.a.dbg
+
+
+#############################################
+# Utility command for update_mappings
+
+build CS330M/external/cmakelibs/glfw/src/update_mappings: phony CS330M/external/cmakelibs/glfw/src/CMakeFiles/update_mappings
+
+
+#############################################
+# Utility command for edit_cache
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M\external\cmakelibs\glfw\src && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build CS330M/external/cmakelibs/glfw/src/edit_cache: phony CS330M/external/cmakelibs/glfw/src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M\external\cmakelibs\glfw\src && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\matt\source\repos\CS330M -BC:\Users\matt\source\repos\CS330M\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build CS330M/external/cmakelibs/glfw/src/rebuild_cache: phony CS330M/external/cmakelibs/glfw/src/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build CS330M/external/cmakelibs/glfw/src/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/install.util: CUSTOM_COMMAND CS330M/external/cmakelibs/glfw/src/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M\external\cmakelibs\glfw\src && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build CS330M/external/cmakelibs/glfw/src/install: phony CS330M/external/cmakelibs/glfw/src/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/install/local.util: CUSTOM_COMMAND CS330M/external/cmakelibs/glfw/src/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M\external\cmakelibs\glfw\src && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build CS330M/external/cmakelibs/glfw/src/install/local: phony CS330M/external/cmakelibs/glfw/src/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/install/strip.util: CUSTOM_COMMAND CS330M/external/cmakelibs/glfw/src/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\cmake-build-debug\CS330M\external\cmakelibs\glfw\src && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build CS330M/external/cmakelibs/glfw/src/install/strip: phony CS330M/external/cmakelibs/glfw/src/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for CS330M\external\cmakelibs\glfw\src\CMakeFiles\update_mappings
+
+build CS330M/external/cmakelibs/glfw/src/CMakeFiles/update_mappings | ${cmake_ninja_workdir}CS330M/external/cmakelibs/glfw/src/CMakeFiles/update_mappings: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\matt\source\repos\CS330M\CS330M\external\cmakelibs\glfw\src && "C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -P C:/Users/matt/source/repos/CS330M/CS330M/external/cmakelibs/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h"
+  DESC = Updating gamepad mappings from upstream repository
+
 # =============================================================================
 # Target aliases.
 
 build CS330M: phony CS330M/CS330M.exe
 
 build CS330M.exe: phony CS330M/CS330M.exe
+
+build glfw: phony CS330M/external/cmakelibs/glfw/src/libglfw3.a
+
+build libglfw3.a: phony CS330M/external/cmakelibs/glfw/src/libglfw3.a
+
+build uninstall: phony CS330M/external/cmakelibs/glfw/uninstall
+
+build update_mappings: phony CS330M/external/cmakelibs/glfw/src/update_mappings
 
 # =============================================================================
 # Folder targets.
@@ -161,7 +613,21 @@ build all: phony CS330M/all
 #############################################
 # Folder: C:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M
 
-build CS330M/all: phony CS330M/CS330M.exe
+build CS330M/all: phony CS330M/CS330M.exe CS330M/external/cmakelibs/glfw/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw
+
+build CS330M/external/cmakelibs/glfw/all: phony CS330M/external/cmakelibs/glfw/src/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/matt/source/repos/CS330M/cmake-build-debug/CS330M/external/cmakelibs/glfw/src
+
+build CS330M/external/cmakelibs/glfw/src/all: phony CS330M/external/cmakelibs/glfw/src/libglfw3.a
 
 # =============================================================================
 # Built-in targets
@@ -170,14 +636,14 @@ build CS330M/all: phony CS330M/CS330M.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../CS330M/CMakeLists.txt C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeRCCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../CS330M/CMakeLists.txt ../CS330M/external/cmakelibs/glfw/CMakeLists.txt ../CS330M/external/cmakelibs/glfw/CMake/cmake_uninstall.cmake.in ../CS330M/external/cmakelibs/glfw/CMake/glfw3.pc.in ../CS330M/external/cmakelibs/glfw/CMake/glfw3Config.cmake.in ../CS330M/external/cmakelibs/glfw/src/CMakeLists.txt C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CheckIncludeFile.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CheckLibraryExists.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/FindDoxygen.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/FindOpenGL.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/FindThreads.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeRCCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt ../CS330M/CMakeLists.txt C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeRCCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../CS330M/CMakeLists.txt ../CS330M/external/cmakelibs/glfw/CMakeLists.txt ../CS330M/external/cmakelibs/glfw/CMake/cmake_uninstall.cmake.in ../CS330M/external/cmakelibs/glfw/CMake/glfw3.pc.in ../CS330M/external/cmakelibs/glfw/CMake/glfw3Config.cmake.in ../CS330M/external/cmakelibs/glfw/src/CMakeLists.txt C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CheckIncludeFile.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/CheckLibraryExists.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/FindDoxygen.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/FindOpenGL.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/FindThreads.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2022.2.1/bin/cmake/win/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeRCCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
 
 
 #############################################
