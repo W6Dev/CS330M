@@ -1,4 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.18)
 
+set(CMAKE_CXX_STANDARD 20)
+
 project(CS330M)
 add_subdirectory(CS330M)
